@@ -1,0 +1,47 @@
+#!/bin/bash
+
+read -p 'please write the files paths separated with spaces : ' paths
+git add "$paths"
+git status
+read -p 'type :
+1 to docs
+2 to feat
+3 to fix
+4 to perf
+5 to refractor
+6 to style
+7 to test
+Your choice : ' choice
+case $choice in
+    1)
+        option="docs"
+        ;;
+    2)
+        option="feat"
+        ;;
+    3)
+        option="fix"
+        ;;
+    4)
+        option="perf"
+        ;;
+    5)
+        option="refactor"
+        ;;
+    6)
+        option="style"
+        ;;
+    7)
+        option="test"
+        ;;
+    *)
+        echo "Invalid choice"
+        exit 1
+        ;;
+esac
+echo "You chose $option"
+read -p 'subject : ' subject
+read -p 'body : ' body
+read -p 'footer : ' footer
+
+git commit -m "$option: $subject" -m "$body\n$footer"
