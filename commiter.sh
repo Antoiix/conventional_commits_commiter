@@ -41,7 +41,7 @@ case $choice in
 esac
 echo "You chose $option"
 read -p 'subject : ' subject
+echo "Did you have BREAKING CHANGE ?"
 read -p 'body : ' body
-read -p 'footer : ' footer
 
-git commit -m "$option: $subject" -m "$body\n$footer"
+git commit -m "$option: $subject" -m "$body"
